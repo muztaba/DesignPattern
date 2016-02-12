@@ -1,16 +1,19 @@
 package design.pattern.observerpattern;
 
+import design.pattern.observerpattern.subscribers.Subscriber;
+
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by seal on 12/27/2015.
  */
 public class PostOffice implements Subject {
-    List<Observer> subscriber;
+    Set<Observer> subscriber;
 
     public PostOffice() {
-        subscriber = new ArrayList<>();
+        subscriber = new HashSet<>();
     }
 
     @Override
@@ -29,8 +32,8 @@ public class PostOffice implements Subject {
 
     @Override
     public void _notify() {
-        for (int i = 0; i < subscriber.size(); i++) {
-            subscriber.get(i).update();
+        for (Observer itr : subscriber) {
+            itr.update();
         }
     }
 
