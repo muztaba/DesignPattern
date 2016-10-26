@@ -8,6 +8,12 @@ import design.pattern.Client;
 public class FlyweightClient implements Client {
     @Override
     public void test() {
+        CoffeeShop coffeeShop = new CoffeeShop();
 
+        coffeeShop.takeOrder("Bangladeshi coffee", 1);
+        coffeeShop.takeOrder("Chaina Coffee", 2);
+
+        coffeeShop.getOrderList()
+                .forEach(System.out::println);
     }
 }
